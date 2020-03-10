@@ -1,10 +1,17 @@
 import React from 'react';
-import Student from './components/Student'
+import StudentList from './components/student/StudentList'
+import InputForm from './components/student/InputForm';
+import Nevbar from './components/nevbar/menu'
+import './App.css'
 
 const App = () => {
   return (
-    <div >
-      <Student />
+    <div className='body-App'>
+      <Nevbar />
+      <h1>Insert Data</h1>
+      <InputForm />
+      <h1>Students Infomation</h1>
+      <StudentList />
     </div>
   );
 }
