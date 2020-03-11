@@ -8,15 +8,20 @@ const  port = 8080
 const StudentList = props => {
 
     const students = useSelector(state => state.student);
-    const dispatch = useDispatch();
+    const dispatch = useDispatch(); 
 
-    const getStudents = async () => {
-        const result = await axios.get(`http://localhost:${port}/api/students`)
-        dispatch({ type: 'GET_STUDENTS', students: result.data })
-    }
+    // const getStudents = async () => {
+    //     const result = await axios.get(`http://localhost:${port}/api/students`)
+    //     dispatch({ type: 'GET_STUDENTS', students: result.data })
+    // }
 
     useEffect(() => {
+        const getStudents = async () => {
+            const result = await axios.get(`http://localhost:${port}/api/students`)     
+            dispatch({ type: 'GET_STUDENTS', students: result.data }) 
+        }
         getStudents()
+        // eslint-disable-next-line
       }, [props])
 
     if (!students || !students.length)
